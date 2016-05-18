@@ -10,8 +10,31 @@ public class Derivative {
     public Derivative(){
         
     }
-    public void takeDerivative(){
-        
+    private int A;
+    private int B;
+    public void readPower(String func,String var){
+        char[] tempA = {};
+        char[] tempB = {};
+        char[] function;
+        char charVar = var.charAt(1);
+        function = func.toCharArray();
+        for(int i=0; i< function.length; i++){
+            if(function[0] == charVar){
+                A=0;
+            }
+            else if(function[i+1] == charVar){
+                System.arraycopy(function, 0, tempA, 0, i);
+                A = Integer.valueOf(new String(tempA));
+            }
+            else if(function[i-1] == '^'){
+                System.arraycopy(function, i, tempB, 0, function.length);
+                B = Integer.valueOf(new String(tempB));
+            }
+            else{
+                System.out.println("There's something wrong with that power statement"
+                        + "\nThere's probably a space that shouldn't be there");
+            }
+        }
     }
     public String powerRule(int a, String var, int b){
         String c;
@@ -48,18 +71,59 @@ public class Derivative {
                 b = "csc^2("+ var + ")";
                 break;
             default:
-                b = "Check your spelling. Only basic trig functions"
-                        + "/nare supported at this time";
+                b = "If this is in your equation, you misspelled a trig function";
         }
         return b;
     }
-    public void productRule(){
-        
+    public String logRule(String logBase, String var){
+        String out;
+        if(logBase == "e"){
+            out = "1/(" + var + ")";
+        }
+        else{
+            out = "ln("+ logBase + ")/" + "(" + var + ")";
+        }
+        return out;
     }
-    public void quotientRule(){
-        
-    }
-    public void chainRule(){
-        
+    /**Derivative taken in the form of f(g(x))= f'(g(x))g'(x)
+     * 
+     * @param typeF
+     * @param typeG
+     * @param var
+     * @return 
+     */
+    public String chainRule(String typeF, String f, String typeG, String g, String var){
+        String fPrimeG;
+        String gPrime;
+        switch(typeG){
+            case "trig":
+                gPrime = trigRule(g,var);
+                break;
+            case "power":
+                readPower(f,var);
+                powerRule(A,g,B);
+                break;
+            case "exp":
+                System.out.println("");
+                break;
+            case "log":
+                System.out.println("");
+                break;
+        }
+        switch(typeF){
+            case "trig":
+                fPrimeG = trigRule(f,g);
+                break;
+            case "power":
+                
+                break;
+            case "exp":
+                
+                break;
+            case "log":
+                
+                break;
+        }
+        return fPrimeG + gPrime;
     }
 }

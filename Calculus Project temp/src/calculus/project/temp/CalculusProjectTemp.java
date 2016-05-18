@@ -19,9 +19,11 @@ public class CalculusProjectTemp {
      */
     public static void main(String[] args) {
         boolean ans1 = false;
-
+        boolean ans2 = false;
         Scanner sc = new Scanner(System.in);
-
+        Derivative der = new Derivative();
+        String var;
+        String out;
         System.out.println("a. Trig Functions");
         System.out.println("b. Power Functions");
         System.out.println("c. Exponential Functions");
@@ -38,7 +40,8 @@ public class CalculusProjectTemp {
                     break;
                 case "b":
                     ans1 = true;
-                    //do power rules
+                    System.out.println("");
+                    String func = sc.next();
                     break;
                 case "c":
                     ans1 = true;
@@ -46,7 +49,14 @@ public class CalculusProjectTemp {
                     break;
                 case "d":
                     ans1 = true;
-                    //do log rules
+                    System.out.println("Imput the base of the log"
+                                + "\nremeber that ln is log_e");
+                    String base = sc.next();   
+                    System.out.println("Imput the name of the variable you are using");
+                    var = sc.next();
+                    out = der.logRule(base, var);
+                    System.out.println("The derivative of log_" + base + "(" + var + ") is:");
+                    System.out.println(out);
                     break;
                 case "e":
                     ans1 = true;
@@ -56,7 +66,6 @@ public class CalculusProjectTemp {
                     System.out.println("Not a valid option!");
             }
         }
-
     }
 
 }
