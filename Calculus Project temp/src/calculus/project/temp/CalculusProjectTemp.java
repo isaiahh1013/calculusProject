@@ -20,6 +20,10 @@ public class CalculusProjectTemp {
     public static void main(String[] args) {
         boolean ans1 = false;
         boolean ans2 = false;
+        String var;
+        String out;
+        
+        Derivative der = new Derivative();
         Scanner sc = new Scanner(System.in);
         System.out.println("a. Trig Functions");
         System.out.println("b. Power Functions");
@@ -36,7 +40,6 @@ public class CalculusProjectTemp {
                     System.out.println("What trig function do you want to take the derivative of (Don't include the variable): ");
                     String trigfun = sc.next();
                     for(int i = 0; i<6 ; i++){
-                        trigFunc[i]/
                     }
                     break;
                 case "b":
@@ -50,10 +53,11 @@ public class CalculusProjectTemp {
                     break;
                 case "d":
                     ans1 = true;
+                    
                     System.out.println("Imput the base of the log"
-                                + "\nremeber that ln is log_e");
+                                + "\nremember that ln is log_e");
                     String base = sc.next();   
-                    System.out.println("Imput the name of the variable you are using");
+                    System.out.println("Input the name of the variable you are using");
                     var = sc.next();
                     out = der.logRule(base, var);
                     System.out.println("The derivative of log_" + base + "(" + var + ") is:");
@@ -61,7 +65,10 @@ public class CalculusProjectTemp {
                     break;
                 case "e":
                     ans1 = true;
-                    //do chain rule
+                    System.out.println("What variable are you using: ");
+                    var = sc.next();
+                    System.out.println("What type of function is f: ");
+                    String typeF = sc.next();
                     break;
                 default:
                     System.out.println("Not a valid option!");
