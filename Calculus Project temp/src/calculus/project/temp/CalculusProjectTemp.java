@@ -19,9 +19,10 @@ public class CalculusProjectTemp {
      */
     public static void main(String[] args) {
         boolean ans1 = false;
-
+        boolean ans2 = false;
         Scanner sc = new Scanner(System.in);
-
+        String[] trigFunc = {"sin","cos","tan","sec","csc","cot"};
+        
         System.out.println("a. Trig Functions");
         System.out.println("b. Power Functions");
         System.out.println("c. Exponential Functions");
@@ -34,7 +35,13 @@ public class CalculusProjectTemp {
             switch (choice) {
                 case "a":
                     ans1 = true;
-                    //do trig rules
+                    System.out.println("What trig function do you want to take the derivative of (Don't include the variable): ");
+                    String trigfun = sc.next();
+                    for(int i = 0; i<6 ; i++){
+                        trigFunc[i]
+                    }
+                        
+                    }
                     break;
                 case "b":
                     ans1 = true;
