@@ -10,32 +10,33 @@ public class Derivative {
     public Derivative(){
         
     }
-    private int A;
-    private int B;
+    /*
+    public int A;
+    public int B;
     public void readPower(String func,String var){
         char[] tempA = {};
         char[] tempB = {};
         char[] function;
-        char charVar = var.charAt(1);
+        char charVar = var.charAt(0);
         function = func.toCharArray();
-        for(int i=0; i< function.length; i++){
+        for(int i=0; i < function.length; i++){
             if(function[0] == charVar){
                 A=0;
             }
             else if(function[i+1] == charVar){
                 System.arraycopy(function, 0, tempA, 0, i);
-                A = Integer.valueOf(new String(tempA));
+                A = Integer.valueOf(String.valueOf(tempA));
             }
             else if(function[i-1] == '^'){
                 System.arraycopy(function, i, tempB, 0, function.length);
-                B = Integer.valueOf(new String(tempB));
+                B = Integer.valueOf(String.valueOf(tempB));
             }
             else{
                 System.out.println("There's something wrong with that power statement"
                         + "\nThere's probably a space that shouldn't be there");
             }
         }
-    }
+    }*/
     public String powerRule(int a, String var, int b){
         String c;
         if(a > 0 && b > 1){

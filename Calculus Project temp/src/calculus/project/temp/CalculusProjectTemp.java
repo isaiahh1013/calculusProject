@@ -13,7 +13,14 @@ import java.util.Scanner;
  * @author Benja_thomp486
  */
 public class CalculusProjectTemp {
-
+    public boolean checkFor(String[] arr, String str){
+        for(String key : arr){
+            if(key.equalsIgnoreCase(str)){
+                return true;
+            }
+        }
+        return false;
+    }
     /**
      * @param args the command line arguments
      */
@@ -21,8 +28,10 @@ public class CalculusProjectTemp {
         boolean ans1 = false;
         boolean ans2 = false;
         String var;
-        String out;
-        
+        String out = "";
+        String func;
+        String[] trigFunc = {"sin","cos","tan","csc","sec","cot"};
+        String[] funcTypes = {"trig","pow","exp","log"};
         Derivative der = new Derivative();
         Scanner sc = new Scanner(System.in);
         System.out.println("a. Trig Functions");
@@ -33,19 +42,27 @@ public class CalculusProjectTemp {
         System.out.println("\nEnter the letter of the type of tunction you want to take the derivative of: ");
         while (!ans1) {
             String choice = sc.next();
-
             switch (choice) {
                 case "a":
                     ans1 = true;
                     System.out.println("What trig function do you want to take the derivative of (Don't include the variable): ");
-                    String trigfun = sc.next();
+                    func = sc.next();
                     for(int i = 0; i<6 ; i++){
+                        
                     }
                     break;
                 case "b":
                     ans1 = true;
-                    System.out.println("");
-                    String func = sc.next();
+                    int pow;
+                    int coeff;
+                    System.out.println("Enter the coefficient:");
+                    coeff = sc.nextInt();                    
+                    System.out.println("Now enter the power:");
+                    pow = sc.nextInt();
+                    System.out.println("What variable are you using?");
+                    var = sc.next();
+                    out = der.powerRule(coeff,var,pow);
+                    System.out.println("The derivative of " + coeff + var + "^" + pow + "is:");
                     break;
                 case "c":
                     ans1 = true;
@@ -61,19 +78,21 @@ public class CalculusProjectTemp {
                     var = sc.next();
                     out = der.logRule(base, var);
                     System.out.println("The derivative of log_" + base + "(" + var + ") is:");
-                    System.out.println(out);
                     break;
                 case "e":
                     ans1 = true;
                     System.out.println("What variable are you using: ");
                     var = sc.next();
                     System.out.println("What type of function is f: ");
-                    String typeF = sc.next();
+                    while(!ans2){
+                        String typeF = sc.next();
+                    }
                     break;
                 default:
                     System.out.println("Not a valid option!");
             }
         }
+        System.out.println(out);
     }
 
 }
