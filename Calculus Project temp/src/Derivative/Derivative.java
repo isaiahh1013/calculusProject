@@ -66,10 +66,10 @@ public class Derivative {
                 b="sec("+ var + ")" + "tan(" + var + ")";
                 break;
             case "csc":
-                b="csc("+ var + ")" + "cot(" + var + ")";
+                b="-csc("+ var + ")" + "cot(" + var + ")";
                 break;
             case "cot":
-                b = "csc^2("+ var + ")";
+                b = "-csc^2("+ var + ")";
                 break;
             default:
                 b = "If this is in your equation, you misspelled a trig function";
