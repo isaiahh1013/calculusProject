@@ -86,6 +86,16 @@ public class Derivative {
         }
         return out;
     }
+    public String exponentRule(String var, String exp){
+        String out = "";
+        if(exp == "e"){
+            out = exp + "^" + var;
+        }
+        else{
+            out = exp + "^" + var + "*ln(" + exp + ")";
+        }
+        return out;
+    }
     /**Derivative taken in the form of f(g(x))= f'(g(x))g'(x)
      * 
      * @param typeF
@@ -93,9 +103,10 @@ public class Derivative {
      * @param var
      * @return 
      */
+    /*
     public String chainRule(String typeF, String f, String typeG, String g, String var){
-        String fPrimeG;
-        String gPrime;
+        String fPrimeG = "";
+        String gPrime = "";
         switch(typeG){
             case "trig":
                 gPrime = trigRule(g,var);
@@ -130,5 +141,5 @@ public class Derivative {
                 fPrimeG = "ERROR";
         }
         return fPrimeG + gPrime;
-    }
+    }*/
 }

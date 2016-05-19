@@ -38,7 +38,9 @@ public class CalculusProjectTemp {
         System.out.println("b. Power Functions");
         System.out.println("c. Exponential Functions");
         System.out.println("d. Logarithms Functions");
+        /*
         System.out.println("e. 1 step Chain Rule");
+        */
         System.out.println("\nEnter the letter of the type of tunction you want to take the derivative of: ");
         while (!ans1) {
             String choice = sc.next();
@@ -66,7 +68,12 @@ public class CalculusProjectTemp {
                     break;
                 case "c":
                     ans1 = true;
-                    //do exponential rules
+                    System.out.println("Now enter the exponent:");
+                    String exp = sc.next();
+                    System.out.println("What variable are you using?");
+                    var = sc.next();
+                    out = der.exponentRule(var,exp);
+                    System.out.println("The derivative of " + exp + "^" + var + "is:");
                     break;
                 case "d":
                     ans1 = true;
@@ -79,6 +86,7 @@ public class CalculusProjectTemp {
                     out = der.logRule(base, var);
                     System.out.println("The derivative of log_" + base + "(" + var + ") is:");
                     break;
+                /*
                 case "e":
                     ans1 = true;
                     System.out.println("What variable are you using: ");
@@ -88,6 +96,7 @@ public class CalculusProjectTemp {
                         String typeF = sc.next();
                     }
                     break;
+                */
                 default:
                     System.out.println("Not a valid option!");
             }
