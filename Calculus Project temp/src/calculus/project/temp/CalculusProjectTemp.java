@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Benja_thomp486
  */
 public class CalculusProjectTemp {
-    public boolean checkFor(String[] arr, String str){
+    public static boolean checkFor(String[] arr, String str){
         for(String key : arr){
             if(key.equalsIgnoreCase(str)){
                 return true;
@@ -27,9 +27,9 @@ public class CalculusProjectTemp {
     public static void main(String[] args) {
         boolean ans1 = false;
         boolean ans2 = false;
-        String var;
+        String var = "";
         String out = "";
-        String func;
+        String func = "";
         String[] trigFunc = {"sin","cos","tan","csc","sec","cot"};
         String[] funcTypes = {"trig","pow","exp","log"};
         Derivative der = new Derivative();
@@ -47,11 +47,19 @@ public class CalculusProjectTemp {
             switch (choice) {
                 case "a":
                     ans1 = true;
-                    System.out.println("What trig function do you want to take the derivative of (Don't include the variable): ");
-                    func = sc.next();
-                    for(int i = 0; i<6 ; i++){
-                        
+                    System.out.println("What trig function do you want to take the"
+                            + " derivative of (Don't include the variable): ");
+                    while(!ans2){
+                        func = sc.next();
+                        ans2 = checkFor(trigFunc,func);
+                        if(!ans2){
+                            System.out.println("That's not a trig function...");
+                        }
                     }
+                    System.out.println("what variable are you using?");
+                    var = sc.next();
+                    out = der.trigRule(func, var);
+                    System.out.println("The derivative of " + func + "(" + var + ")");
                     break;
                 case "b":
                     ans1 = true;
@@ -73,7 +81,7 @@ public class CalculusProjectTemp {
                     System.out.println("What variable are you using?");
                     var = sc.next();
                     out = der.exponentRule(var,exp);
-                    System.out.println("The derivative of " + exp + "^" + var + "is:");
+                    System.out.println("The derivative of " + exp + "^" + var + " is:");
                     break;
                 case "d":
                     ans1 = true;
