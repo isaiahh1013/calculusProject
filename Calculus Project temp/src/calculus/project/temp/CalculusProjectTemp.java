@@ -36,7 +36,7 @@ public class CalculusProjectTemp {
                     System.out.println("What trig function do you want to take the derivative of (Don't include the variable): ");
                     String trigfun = sc.next();
                     for(int i = 0; i<6 ; i++){
-                        trigFunc[i]/
+                        if(trigFunc[i])
                     }
                     break;
                 case "b":

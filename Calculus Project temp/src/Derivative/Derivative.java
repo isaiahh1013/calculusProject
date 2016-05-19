@@ -101,14 +101,16 @@ public class Derivative {
                 break;
             case "power":
                 readPower(f,var);
-                powerRule(A,g,B);
+                gPrime = powerRule(A,g,B);
                 break;
             case "exp":
                 System.out.println("");
                 break;
             case "log":
-                System.out.println("");
+                
                 break;
+            default:
+                gPrime = "ERROR function not recognized";
         }
         switch(typeF){
             case "trig":
@@ -123,6 +125,8 @@ public class Derivative {
             case "log":
                 
                 break;
+            default:
+                fPrimeG = "ERROR";
         }
         return fPrimeG + gPrime;
     }
